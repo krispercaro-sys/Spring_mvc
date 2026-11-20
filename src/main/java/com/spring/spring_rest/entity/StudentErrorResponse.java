@@ -28,7 +28,10 @@ public class StudentErrorResponse {
      * @param message the error message
      * @param timeStamp the time when the error occurred
      */
-    public StudentErrorResponse(int status, String message, long timeStamp) {
+    public StudentErrorResponse(
+            int status,
+            String message,
+            long timeStamp) {
         this.status = status;
         this.message = message;
         this.timeStamp = timeStamp;

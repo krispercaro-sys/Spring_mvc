@@ -46,7 +46,11 @@ public class Student {
      * @param lastName the student's last name
      * @param email the student's email address
      */
-    public Student(Long id, String firstName, String lastName, String email) {
+    public Student(
+            Long id,
+            String firstName,
+            String lastName,
+            String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

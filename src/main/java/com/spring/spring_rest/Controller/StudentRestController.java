@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -25,12 +26,13 @@ import jakarta.validation.Valid;
  */
 @RestController
 @RequestMapping("/api/students")
+@CrossOrigin(origins = "*")
 public class StudentRestController {
 
     private StudentService studentService;
 
     /**
-     * Constructs a StudentRestController with the required student service.
+     * Constructs a controller with the required student service.
      *
      * @param studentService the service used to manage student records
      */
@@ -60,7 +62,8 @@ public class StudentRestController {
      * @return the student details with HTTP 200 status
      */
     @GetMapping("{id}")
-    public ResponseEntity<StudentDto> getStudentById(@PathVariable Long id) {
+    public ResponseEntity<StudentDto> getStudentById(
+            @PathVariable Long id) {
 
         StudentDto studentDto = studentService.getStudentById(id);
 
@@ -92,7 +95,8 @@ public class StudentRestController {
             @PathVariable Long id,
             @Valid @RequestBody StudentDto theStudentDto) {
 
-    StudentDto studentDto = studentService.updateStudent(id, theStudentDto);
+        StudentDto studentDto =
+                studentService.updateStudent(id, theStudentDto);
 
         return ResponseEntity.ok(studentDto);
     }
@@ -109,7 +113,8 @@ public class StudentRestController {
             @PathVariable Long id,
             @Valid @RequestBody StudentDto theStudentDto) {
 
-        StudentDto studentDto = studentService.patchStudent(id, theStudentDto);
+        StudentDto studentDto =
+                studentService.patchStudent(id, theStudentDto);
 
         return ResponseEntity.ok(studentDto);
     }
@@ -121,7 +126,8 @@ public class StudentRestController {
      * @return a success message with HTTP 200 status
      */
     @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteStudentById(@PathVariable Long id) {
+    public ResponseEntity<String> deleteStudentById(
+            @PathVariable Long id) {
 
         studentService.deleteStudentById(id);
 

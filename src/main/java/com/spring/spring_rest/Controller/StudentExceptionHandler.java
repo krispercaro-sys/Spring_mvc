@@ -8,7 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.method.annotation
+        .MethodArgumentTypeMismatchException;
 
 import com.spring.spring_rest.entity.StudentErrorResponse;
 import com.spring.spring_rest.exception.StudentNotFoundException;
